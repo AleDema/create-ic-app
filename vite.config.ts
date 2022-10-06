@@ -73,7 +73,6 @@ export default defineConfig({
     },
   },
   server: {
-    base: './src/frontend',
     fs: {
       allow: ["."],
     },
