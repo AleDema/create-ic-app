@@ -18,7 +18,18 @@ import { Counter } from "./components/Counter"
 import { Transfer } from "./components/Transfer"
 import { Profile } from "./components/Profile"
 
+//STATE
+import { useSnapshot } from 'valtio'
+import state from "./context/global"
+
+
+//ROUTING
+import {Link} from "react-router-dom";
+
 function App() {
+
+  const snap = useSnapshot(state)
+
   return (
     <div className="App">
       <div className="auth-section">
@@ -28,15 +39,14 @@ function App() {
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p className="slogan text-pink-500">
+        <p className="slogan">
           React+TypeScript Template
         </p>
-        <p className="twitter">by <a href="https://twitter.com/miamaruq">@miamaruq</a></p>
       </header>
 
-      <p className="examples-title">
-        Examples
-      </p>
+      <Link to="/home">Home</Link>
+      {snap.count}
+
       <div className="examples">
         <Counter />
         <Profile />

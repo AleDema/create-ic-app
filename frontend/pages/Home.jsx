@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Home = () => {
 
      let navigate = useNavigate();
@@ -7,6 +7,7 @@ const Home = () => {
     return (
         <div>
             <p>Home Page</p>
+            <Link to="/">Go Back</Link>
             <button onClick={(event) => {
             event.preventDefault();
             navigate(`/`);
