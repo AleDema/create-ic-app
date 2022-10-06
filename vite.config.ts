@@ -1,5 +1,4 @@
 import { defineConfig } from "vite"
-import reactRefresh from "@vitejs/plugin-react-refresh"
 import react from "@vitejs/plugin-react"
 import path from "path"
 import dfxJson from "./dfx.json"
@@ -26,8 +25,8 @@ try {
     console.error("\n⚠️  Before starting the dev server run: dfx deploy\n\n")
 }
 
-// List of all aliases for canisters
-// This will allow us to: import { canisterName } from "canisters/canisterName"
+// List of all aliases for backend
+// This will allow us to: import { canisterName } from "backend/canisterName"
 const aliases = Object.entries(dfxJson.canisters).reduce(
   (acc, [name, _value]) => {
     // Get the network name, or `local` by default.
@@ -42,13 +41,13 @@ const aliases = Object.entries(dfxJson.canisters).reduce(
 
     return {
       ...acc,
-      ["canisters/" + name]: path.join(outputRoot, "index" + ".js"),
+      ["backend/" + name]: path.join(outputRoot, "index" + ".js"),
     }
   },
   {},
 )
 
-// Generate canister ids, required by the generated canister code in .dfx/local/canisters/*
+// Generate canister ids, required by the generated canister code in .dfx/local/backend/*
 // This strange way of JSON.stringifying the value is required by vite
 const canisterDefinitions = Object.entries(canisterIds).reduce(
   (acc, [key, val]) => ({

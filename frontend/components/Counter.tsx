@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 
 const Counter = () => {
   /*
-  * This how you use canisters throughout your app.
+  * This how you use backend throughout your app.
   */
   const [counter] = useCanister("counter")
   const [count, setCount] = useState<bigint>()

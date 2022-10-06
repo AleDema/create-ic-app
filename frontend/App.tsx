@@ -10,7 +10,7 @@ import "@connect2ic/core/style.css"
 /*
  * Import canister definitions like this:
  */
-import * as counter from "../.dfx/local/canisters/counter"
+import * as backend from "../.dfx/local/canisters/backend"
 /*
  * Some examples to get you started
  */
@@ -28,7 +28,7 @@ function App() {
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p className="slogan">
+        <p className="slogan text-pink-500">
           React+TypeScript Template
         </p>
         <p className="twitter">by <a href="https://twitter.com/miamaruq">@miamaruq</a></p>
@@ -48,7 +48,7 @@ function App() {
 
 const client = createClient({
   canisters: {
-    counter,
+    backend,
   },
   providers: defaultProviders,
   globalProviderConfig: {
