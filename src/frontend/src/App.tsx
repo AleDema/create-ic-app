@@ -10,7 +10,7 @@ import "@connect2ic/core/style.css"
 /*
  * Import canister definitions like this:
  */
-import * as backend from "../../.dfx/local/canisters/backend"
+import * as backend from "../../declarations/backend"
 /*
  * Some examples to get you started
  */
@@ -38,7 +38,7 @@ function App() {
       <ConnectDialog />
 
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p className="slogan">
           React+TypeScript Template
         </p>
