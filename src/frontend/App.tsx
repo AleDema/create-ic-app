@@ -10,7 +10,7 @@ import "@connect2ic/core/style.css"
 /*
  * Import canister definitions like this:
  */
-import * as backend from "../.dfx/local/canisters/backend"
+import * as backend from "../../.dfx/local/canisters/backend"
 /*
  * Some examples to get you started
  */
@@ -29,7 +29,7 @@ import {Link} from "react-router-dom";
 function App() {
 
   const snap = useSnapshot(state)
-
+  //backend.greet("hello")
   return (
     <div className="App">
       <div className="auth-section">

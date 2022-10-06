@@ -1,10 +1,15 @@
 {
   "name": "ic-app-react-ts",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predev": "dfx start --background --clean; dfx deploy backend; npm run generate;",
+    "postdev": "dfx stop",
+    "generate": "dfx generate backend",
+    "prebuild": "npm run generate",
+    "start": "npm run dev"
   },
   "dependencies": {
     "@connect2ic/core": "^0.1.1",

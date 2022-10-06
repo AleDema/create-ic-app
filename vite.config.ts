@@ -41,7 +41,7 @@ const aliases = Object.entries(dfxJson.canisters).reduce(
 
     return {
       ...acc,
-      ["backend/" + name]: path.join(outputRoot, "index" + ".js"),
+      ["src/backend/" + name]: path.join(outputRoot, "index" + ".js"),
     }
   },
   {},
@@ -73,6 +73,7 @@ export default defineConfig({
     },
   },
   server: {
+    base: './src/frontend',
     fs: {
       allow: ["."],
     },

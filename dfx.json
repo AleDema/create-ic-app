@@ -1,7 +1,7 @@
 {
   "canisters": {
     "backend": {
-      "main": "backend/main.mo",
+      "main": "src/backend/main.mo",
       "type": "motoko"
     },
     "frontend": {
@@ -13,7 +13,7 @@
       },
       "source": [
         "dist/",
-        "frontend/assets"
+        "src/frontend/assets"
       ],
       "type": "assets"
     }

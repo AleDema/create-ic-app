@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es2020",
     "lib": [
       "DOM",
       "DOM.Iterable",
-      "ESNext"
+      "ES2020"
     ],
     "types": [
       "vite/client"
@@ -15,7 +15,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "es2020",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -24,6 +24,6 @@
     "baseUrl": "."
   },
   "include": [
-    "./frontend"
+    "src/frontend"
   ]
 }
