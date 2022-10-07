@@ -58,7 +58,7 @@ function App() {
       <ConnectDialog dark={true}/>
 
       <div>
-        <img src={logo} className="App-logo logo h-20" alt="logo" />
+        <img src={logo} className="App-logo logo h-28" alt="logo" />
       </div>
       <h1 className = "text-5xl">Vite + React + ICP</h1>
       <div className="space-x-4">
