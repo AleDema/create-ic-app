@@ -1,5 +1,6 @@
-import React from "react"
-import logo from "./assets/dfinity.svg"
+import React, { useEffect, useState } from "react"
+import logo from "../assets/dfinity.svg"
+import reactLogo from './assets/react.svg'
 /*
  * Connect2ic provides essential utilities for IC app development
  */
@@ -11,17 +12,18 @@ import "@connect2ic/core/style.css"
  * Import canister definitions like this:
  */
 import * as declarations from "../../declarations/backend"
-import {backend} from "../../declarations/backend"
 /*
  * Some examples to get you started
  */
-import { Counter } from "./components/Counter"
 import { Transfer } from "./components/Transfer"
 import { Profile } from "./components/Profile"
 
 //STATE
 import { useSnapshot } from 'valtio'
 import state from "./context/global"
+
+//CANISTER
+import { backend } from "../../declarations/backend"
 
 
 //ROUTING
@@ -31,25 +33,49 @@ function App() {
 
   const snap = useSnapshot(state)
 
+  const [count, setCount] = useState<bigint>()
+
+  const refreshCounter = async () => {
+    const freshCount = await backend.getValue() as bigint
+    setCount(freshCount)
+  }
+
+  const increment = async () => {
+    await backend.increment()
+    await refreshCounter()
+  }
+
+  useEffect(()=> {
+    refreshCounter();
+  }, [])
+
   return (
     <div className="App">
+
       <div className="auth-section">
         <ConnectButton />
       </div>
       <ConnectDialog />
 
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p className="slogan">
-          React+TypeScript Template
+      <div>
+        <img src={logo} className="App-logo logo react" alt="logo" />
+      </div>
+      <h1>Vite + React + ICP</h1>
+      <div className="card">
+        <button onClick={() => state.count++}>
+          Valtio count is {snap.count}
+        </button>
+        <button onClick={increment}>
+          Canister count is {count?.toString()}
+        </button>
+        <p>
+          Edit <code>App.jsx</code> and save to test HMR
         </p>
-      </header>
+      </div>
 
-      <Link to="/home">Home</Link>
-      {snap.count}
+      <Link className = "card" to="/home">Link</Link>
 
       <div className="examples">
-        <Counter />
         <Profile />
         <Transfer />
       </div>

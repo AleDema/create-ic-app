@@ -1,6 +1,13 @@
 {
   "name": "ic-app-react-ts",
-  "version": "0.1.0",
+  "version": "0.9.0",
+  "description": "Internet Computer starter application",
+  "keywords": [
+    "Internet Computer",
+    "Motoko",
+    "JavaScript",
+    "Canister"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

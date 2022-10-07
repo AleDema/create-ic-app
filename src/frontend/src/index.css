@@ -2,117 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #424242;
+    -webkit-text-size-adjust: 100%;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
 button {
-    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
 }
 
-.slogan {
-    font-size: 1.7em;
-    margin-bottom: 0;
+button:hover {
+    border-color: #646cff;
 }
 
-.twitter {
-    font-size: 0.4em;
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
 }
 
-.App-logo {
-    height: 14vmin;
-    pointer-events: none;
-    transform: scale(1);
-    animation: pulse 3s infinite;
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
 }
 
-.App-header {
-    height: calc(100vh - 70px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-}
-
-.examples {
-    padding: 30px 100px;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.examples-title {
-    font-size: 1.3em;
-    margin-bottom: 0;
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
     text-align: center;
 }
 
-.example {
-    padding: 50px 50px;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /*border: 1px solid black;*/
-    /*background: #f4f4f4;*/
-    border-radius: 15px;
+.logo {
+    height: 14vmin;
+    padding: 1.5em;
+    will-change: filter;
 }
 
-.example-disabled {
-    font-size: 1.3em;
-    color: #9e9e9e;
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-.demo-button {
-    background: #a02480;
-    padding: 0 1.3em;
-    margin-top: 1em;
-    border-radius: 60px;
-    font-size: 0.7em;
-    height: 35px;
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    color: white;
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.demo-button:active {
-    color: white;
-    background: #979799;
-}
-
-.auth-section {
-    padding: 1em;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: right;
-    position: fixed;
-    top: 0;
-    right: 0;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.97);
-        opacity: 0;
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
     }
 
-    70% {
-        transform: scale(1);
-        opacity: 1;
+    to {
+        transform: rotate(360deg);
     }
+}
 
-    100% {
-        transform: scale(0.97);
-        opacity: 0;
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
     }
+}
+
+.card {
+    padding: 2em;
+}
+
+.read-the-docs {
+    color: #888;
 }
