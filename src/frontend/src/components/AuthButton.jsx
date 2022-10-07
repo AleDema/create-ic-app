@@ -1,12 +1,15 @@
 import React from 'react'
 
-import { useDialog } from "@connect2ic/react"
+import { useDialog, useConnect } from "@connect2ic/react"
 
 function AuthButton() {
     const { open, close, isOpen } = useDialog()
+    const { isConnected, disconnect } = useConnect();
 
   return (
-    <button onClick={open}>Connect</button>
+    <>
+      { isConnected ? <button onClick={disconnect}>Disconnect</button> : <button onClick={open}>Connect</button>}
+    </>
   )
 }
 

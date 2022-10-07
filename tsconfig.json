@@ -21,9 +21,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*":["src/frontend/src/components/*"]
+    }
   },
   "include": [
-    "src/frontend"
-, "vite.config.ts"  ]
+    "src/frontend",
+    "vite.config.ts"
+  ]
 }

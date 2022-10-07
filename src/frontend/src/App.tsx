@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import logo from "../assets/dfinity.svg"
+import logo from "./assets/dfinity.svg"
 /*
  * Connect2ic provides essential utilities for IC app development
  */
@@ -51,10 +51,10 @@ function App() {
 
   return (
     <>
- <div className="p-6 absolute">
+  <div className="p-6 absolute">
     <AuthButton/>
   </div>
-    <div className=" bg-bg-primary antialiased font-sans space-y-4 h-screen w-screen flex items-center justify-center flex-col">
+    <div className=" bg-bg-primary text-gray-50 antialiased font-sans space-y-4 h-screen w-screen flex items-center justify-center flex-col color">
       <ConnectDialog dark={true}/>
 
       <div>
@@ -62,7 +62,7 @@ function App() {
       </div>
       <h1 className = "text-5xl">Vite + React + ICP</h1>
       <div className="space-x-4">
-        <button className=" bg-btn-primary hover:border-blue-600 text-base cursor-pointer rounded-md border border-transparent border-solid " onClick={() => state.count++}>
+        <button onClick={() => state.count++}>
           Valtio count is {snap.count}
         </button>
         <button onClick={increment}>
