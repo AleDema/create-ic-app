@@ -82,6 +82,7 @@ export default defineConfig({
       "@context": path.resolve(__dirname, "src/frontend/src/context"),
       "@layouts": path.resolve(__dirname, "src/frontend/src/layouts"),
       "@pages": path.resolve(__dirname, "src/frontend/src/pages"),
+      "@declarations": path.resolve(__dirname, "src/declarations"),
     },
   },
   server: {

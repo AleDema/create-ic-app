@@ -10,23 +10,23 @@ import "@connect2ic/core/style.css"
 /*
  * Import canister definitions like this:
  */
-import * as declarations from "../../declarations/backend"
+import * as declarations from "@declarations/backend"
 /*
  * Some examples to get you started
  */
 import { Transfer } from "@components/Transfer"
-import { Profile } from "./components/Profile"
+import { Profile } from "@components/Profile"
 
-import Home from './pages/Home';
-import ErrorPage from './pages/ErrorPage';
-import RootLayout from './layouts/RootLayout';
+import Home from '@pages/Home';
+import ErrorPage from '@pages/ErrorPage';
+import RootLayout from '@layouts/RootLayout';
 
 //STATE
 import { useSnapshot } from 'valtio'
-import state from "./context/global"
+import state from "@context/global"
 
 //CANISTER
-import { backend } from "../../declarations/backend"
+import { backend } from "@declarations/backend"
 
 //ROUTING
 import { createRoutesFromElements, Link } from "react-router-dom";

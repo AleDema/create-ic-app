@@ -35,6 +35,9 @@
       ],
       "@context/*": [
         "src/frontend/src/context/*"
+      ],
+      "@declarations/*": [
+        "src/declarations/*"
       ]
     }
   },
