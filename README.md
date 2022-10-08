@@ -45,7 +45,6 @@ Alternately, step by step, you can run
 ```bash
 dfx start --background --clean
 dfx deploy backend
-node setupEnv.js
 npm run generate
 vite
 ```
