@@ -5,7 +5,7 @@ import logo from "./assets/dfinity.svg"
  */
 import { createClient } from "@connect2ic/core"
 import { defaultProviders } from "@connect2ic/core/providers"
-import { ConnectDialog, Connect2ICProvider } from "@connect2ic/react"
+import { Connect2ICProvider } from "@connect2ic/react"
 import "@connect2ic/core/style.css"
 /*
  * Import canister definitions like this:
@@ -14,12 +14,12 @@ import * as declarations from "../../declarations/backend"
 /*
  * Some examples to get you started
  */
-import { Transfer } from "@/components/Transfer"
+import { Transfer } from "@components/Transfer"
 import { Profile } from "./components/Profile"
 
 import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage';
-import RootLayout from './layout/RootLayout';
+import RootLayout from './layouts/RootLayout';
 
 //STATE
 import { useSnapshot } from 'valtio'
@@ -56,7 +56,7 @@ function App() {
   useEffect(() => {
     refreshCounter();
   }, [])
-  // routing and layouts, path vars
+
   return (
     <>
       <div>

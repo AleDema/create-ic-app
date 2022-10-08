@@ -3,9 +3,6 @@ import react from "@vitejs/plugin-react"
 import path from "path"
 import dfxJson from "./dfx.json"
 import fs from "fs"
-import { resolve } from 'path'
-
-const projectRootDir = resolve(__dirname);
 
 const isDev = process.env["DFX_NETWORK"] !== "ic"
 
@@ -65,6 +62,7 @@ const canisterDefinitions = Object.entries(canisterIds).reduce(
 // Gets the port dfx is running on from dfx.json
 const DFX_PORT = dfxJson.networks.local.bind.split(":")[1]
 
+
 // See guide on how to configure Vite at:
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -80,8 +78,10 @@ export default defineConfig({
     alias: {
       // Here we tell Vite the "fake" modules that we want to define
       ...aliases,
-      "@": path.resolve(__dirname, "./"),
-      "@/components": resolve(projectRootDir, "components"),
+      "@components": path.resolve(__dirname, "src/frontend/src/components"),
+      "@context": path.resolve(__dirname, "src/frontend/src/context"),
+      "@layouts": path.resolve(__dirname, "src/frontend/src/layouts"),
+      "@pages": path.resolve(__dirname, "src/frontend/src/pages"),
     },
   },
   server: {

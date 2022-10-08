@@ -22,10 +22,21 @@
     "noEmit": true,
     "jsx": "react",
     "checkJs": true,
-    "baseUrl": ".",
-    // "paths": {
-    //   "@/components/*":["src/frontend/src/components/*"]
-    // }
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": [
+        "src/frontend/src/components/*"
+      ],
+      "@pages/*": [
+        "src/frontend/src/pages/*"
+      ],
+      "@layouts/*": [
+        "src/frontend/src/layouts/*"
+      ],
+      "@context/*": [
+        "src/frontend/src/context/*"
+      ]
+    }
   },
   "include": [
     "src/frontend",
