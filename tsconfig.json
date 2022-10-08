@@ -21,10 +21,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
+    "checkJs": true,
     "baseUrl": ".",
-    "paths": {
-      "@/components/*":["src/frontend/src/components/*"]
-    }
+    // "paths": {
+    //   "@/components/*":["src/frontend/src/components/*"]
+    // }
   },
   "include": [
     "src/frontend",

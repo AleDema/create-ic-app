@@ -3,6 +3,9 @@ import react from "@vitejs/plugin-react"
 import path from "path"
 import dfxJson from "./dfx.json"
 import fs from "fs"
+import { resolve } from 'path'
+
+const projectRootDir = resolve(__dirname);
 
 const isDev = process.env["DFX_NETWORK"] !== "ic"
 
@@ -22,7 +25,7 @@ try {
       .toString(),
   )
 } catch (e) {
-    console.error("\n⚠️  Before starting the dev server run: dfx deploy\n\n")
+  console.error("\n⚠️  Before starting the dev server run: dfx deploy\n\n")
 }
 
 // List of all aliases for backend
@@ -65,9 +68,9 @@ const DFX_PORT = dfxJson.networks.local.bind.split(":")[1]
 // See guide on how to configure Vite at:
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:"./",
+  base: "./",
   // assetsInclude: ['src/frontend/public/*.png'],
-  root:"./src/frontend/src",
+  root: "./src/frontend/src",
   publicDir: "../public",
   build: {
     outDir: '../../../dist'
@@ -77,6 +80,8 @@ export default defineConfig({
     alias: {
       // Here we tell Vite the "fake" modules that we want to define
       ...aliases,
+      "@": path.resolve(__dirname, "./"),
+      "@/components": resolve(projectRootDir, "components"),
     },
   },
   server: {

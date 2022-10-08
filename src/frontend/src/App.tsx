@@ -14,9 +14,12 @@ import * as declarations from "../../declarations/backend"
 /*
  * Some examples to get you started
  */
-import { Transfer } from "./components/Transfer"
+import { Transfer } from "@/components/Transfer"
 import { Profile } from "./components/Profile"
-import  AuthButton from "./components/AuthButton"
+
+import Home from './pages/Home';
+import ErrorPage from './pages/ErrorPage';
+import RootLayout from './layout/RootLayout';
 
 //STATE
 import { useSnapshot } from 'valtio'
@@ -26,7 +29,12 @@ import state from "./context/global"
 import { backend } from "../../declarations/backend"
 
 //ROUTING
-import {Link} from "react-router-dom";
+import { createRoutesFromElements, Link } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route
+} from "react-router-dom";
 
 function App() {
 
@@ -45,22 +53,16 @@ function App() {
     await refreshCounter()
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     refreshCounter();
   }, [])
-
+  // routing and layouts, path vars
   return (
     <>
-  <div className="p-6 absolute">
-    <AuthButton/>
-  </div>
-    <div className=" bg-bg-primary text-gray-50 antialiased font-sans space-y-4 h-screen w-screen flex items-center justify-center flex-col color">
-      <ConnectDialog dark={true}/>
-
       <div>
-        <img src={logo} className="App-logo logo h-28" alt="logo" />
+        <img src={logo} className="logo h-28" alt="logo" />
       </div>
-      <h1 className = "text-5xl">Vite + React + ICP</h1>
+      <h1 className="text-5xl">Vite + React + ICP</h1>
       <div className="space-x-4">
         <button onClick={() => state.count++}>
           Valtio count is {snap.count}
@@ -73,15 +75,14 @@ function App() {
         </p>
       </div>
 
-      <Link className = "card" to="/home">Link</Link>
+      <Link to="/home">Link</Link>
 
-      <div className="examples">
+      <div>
         <Profile />
         <Transfer />
       </div>
-    </div>
     </>
-   
+
   )
 }
 
@@ -96,8 +97,16 @@ const client = createClient({
   },
 })
 
+
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
+    <Route index element={<App />} />
+    <Route path="/home" element={<Home />} />
+  </Route>
+));
+
 export default () => (
   <Connect2ICProvider client={client}>
-    <App />
+    <RouterProvider router={router} />
   </Connect2ICProvider>
 )
